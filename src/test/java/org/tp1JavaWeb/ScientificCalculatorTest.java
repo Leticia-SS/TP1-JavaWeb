@@ -13,4 +13,19 @@ public class ScientificCalculatorTest {
         assertEquals(20, result,0.001);
     }
 
+    @Test
+    void testSubtraction(){
+        //Setup
+        ScientificCalculator calculator = new ScientificCalculator();
+
+        //Execution
+        double retult = calculator.subtract(5,3);
+
+        //Assertion
+        assertEquals(2, retult, 0.001);
+
+        //Teardown - limpeza de código desnecessaria nesse exemplo
+    }
+
+
 }
