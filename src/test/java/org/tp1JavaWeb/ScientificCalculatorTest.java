@@ -10,19 +10,16 @@ public class ScientificCalculatorTest {
     @BeforeEach
     void setup(){
         sc = new ScientificCalculator();
-        System.out.println("antes de teste");
     }
 
     @Test
     void testAddition(){
-        System.out.println("teste 1");
         double result = sc.add(10,10);
         assertEquals(20, result,0.001);
     }
 
     @Test
     void testSubtraction(){
-        System.out.println("teste 2");
         //Setup
         ScientificCalculator calculator = new ScientificCalculator();
         //Execution
@@ -32,5 +29,10 @@ public class ScientificCalculatorTest {
         //Teardown - limpeza de código desnecessaria nesse exemplo
     }
 
+    @Test
+    void testSquareRootPositive(){
+        double result = sc.squareRoot(64.00);
+        assertEquals(8,result,0.001);
+    }
 
 }
