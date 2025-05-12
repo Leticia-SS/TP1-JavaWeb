@@ -3,8 +3,7 @@ package org.tp1JavaWeb;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ScientificCalculatorTest {
     ScientificCalculator sc;
@@ -52,4 +51,16 @@ public class ScientificCalculatorTest {
 
         assertEquals("Division by zero", iae.getMessage());
     }
+
+    @Test
+    void testLogarithmWithCommonPositiveValues(){
+        assertAll(
+                () -> assertEquals(1,sc.log(Math.E),0.001),
+                () -> assertEquals(2.302585,sc.log(10),0.001),
+                () -> assertEquals(0,sc.log(1),0.001),
+                () -> assertEquals(-0.693147,sc.log(0.5),0.001)
+        );
+    }
+
+
 }
