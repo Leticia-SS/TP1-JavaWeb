@@ -43,4 +43,13 @@ public class ScientificCalculatorTest {
         });
         assertEquals("Negative number", iae.getMessage());
     }
+
+    @Test
+    void testDivideByZero(){
+        IllegalArgumentException iae = assertThrows(IllegalArgumentException.class, () -> {
+            sc.divide(20, 0);
+        });
+
+        assertEquals("Division by zero", iae.getMessage());
+    }
 }
