@@ -13,13 +13,13 @@ public class ScientificCalculatorTest {
     }
 
     @Test
-    void testAddition(){
+    void shouldReturnCorrectSumWhenAddingTwoNumbers (){
         double result = sc.add(10,10);
         assertEquals(20, result,0.001);
     }
 
     @Test
-    void testSubtraction(){
+    void shouldReturnCorrectDifferenceWhenSubtractingNumbers(){
         //Setup
         ScientificCalculator calculator = new ScientificCalculator();
         //Execution
@@ -30,13 +30,13 @@ public class ScientificCalculatorTest {
     }
 
     @Test
-    void testSquareRootPositive(){
+    void shouldReturnCorrectSquareRootForPositiveNumber (){
         double result = sc.squareRoot(64.00);
         assertEquals(8,result,0.001);
     }
 
     @Test
-    void testSquareRootNegative(){
+    void shouldThrowExceptionWhenCalculatingSquareRootOfNegativeNumber(){
         IllegalArgumentException iae = assertThrows(IllegalArgumentException.class, () -> {
             sc.squareRoot(-4);
         });
@@ -44,7 +44,7 @@ public class ScientificCalculatorTest {
     }
 
     @Test
-    void testDivideByZero(){
+    void shouldThrowExceptionWhenDividingByZero(){
         IllegalArgumentException iae = assertThrows(IllegalArgumentException.class, () -> {
             sc.divide(20, 0);
         });
@@ -53,7 +53,7 @@ public class ScientificCalculatorTest {
     }
 
     @Test
-    void testLogarithmWithCommonPositiveValues(){
+    void shouldReturnCorrectLogarithmForCommonPositiveValues(){
         assertAll(
                 () -> assertEquals(1,sc.log(Math.E),0.001),
                 () -> assertEquals(2.302585,sc.log(10),0.001),
@@ -63,7 +63,7 @@ public class ScientificCalculatorTest {
     }
 
     @Test
-    void testSinWithCommonAngles(){
+    void shouldReturnCorrectSineValueForCommonAngles(){
         assertAll(
                 () -> assertEquals(0.0, sc.sin(0), 0.0001),
                 () -> assertEquals(0.5, sc.sin(30), 0.0001),
