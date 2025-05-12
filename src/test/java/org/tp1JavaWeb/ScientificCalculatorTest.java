@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ScientificCalculatorTest {
     ScientificCalculator sc;
@@ -35,4 +36,11 @@ public class ScientificCalculatorTest {
         assertEquals(8,result,0.001);
     }
 
+    @Test
+    void testSquareRootNegative(){
+        IllegalArgumentException iae = assertThrows(IllegalArgumentException.class, () -> {
+            sc.squareRoot(-4);
+        });
+        assertEquals("Negative number", iae.getMessage());
+    }
 }
