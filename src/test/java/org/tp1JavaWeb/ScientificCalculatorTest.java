@@ -62,5 +62,16 @@ public class ScientificCalculatorTest {
         );
     }
 
-
+    @Test
+    void testSinWithCommonAngles(){
+        assertAll(
+                () -> assertEquals(0.0, sc.sin(0), 0.0001),
+                () -> assertEquals(0.5, sc.sin(30), 0.0001),
+                () -> assertEquals(Math.sqrt(2)/2, sc.sin(45), 0.0001),
+                () -> assertEquals(1.0, sc.sin(90), 0.0001),
+                // Angulo maior que 360
+                () -> assertEquals(0.0, sc.sin(360), 0.0001),
+                () -> assertEquals(1.0, sc.sin(450), 0.0001)
+        );
+    }
 }
